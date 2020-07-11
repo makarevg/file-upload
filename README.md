@@ -1,2 +1,2 @@
 # file-upload
-React controlled `&lt;input type="file" />`
+React controlled `<input type="file" />`
