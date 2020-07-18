@@ -1,0 +1,231 @@
+.button {
+  --g-padding: 12px;
+  --base-height: 32px;
+  --font-size: 14px;
+
+  --accent-color: var(--text-color);
+  --invert-color: var(--text-color-light);
+
+  --accent-hover: var(--text-color);
+  --invert-hover: var(--text-color-light);
+
+  --accent-active: var(--text-color);
+  --invert-active: var(--text-color-light);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font: inherit;
+  font-size: var(--font-size);
+  text-decoration: none;
+
+  padding: 0 var(--g-padding);
+  height: var(--base-height);
+  border-radius: var(--default-border-radius);
+  position: relative;
+  background-position: center;
+  cursor: pointer;
+
+  transition: background-color 0.15s ease-out,
+    color 0.15s ease-out,
+    border-color 0.15s ease-out;
+
+  // Colors
+  &--primary {
+    --accent-color: var(--primary-color);
+    --invert-color: var(--text-color-light);
+
+    --accent-hover: var(--primary-color-dark);
+    --invert-hover: var(--light-color);
+
+    --accent-active: var(--primary-color-extra-dark);
+    --invert-active: var(--light-color);
+  }
+
+  &--primary.ctx-dark {
+    --accent-color: var(--primary-color);
+    --invert-color: var(--light-color);
+
+    --accent-hover: var(--primary-color-light);
+    --invert-hover: var(--text-color-light);
+
+    --accent-active: var(--primary-color-extra-light);
+    --invert-active: var(--text-color-light);
+  }
+
+  &--default {
+    --accent-color: var(--text-color);
+    --invert-color: var(--text-color-light);
+
+    --accent-hover: var(--text-color);
+    --invert-hover: var(--text-color-light);
+
+    --accent-active: var(--text-color);
+    --invert-active: var(--text-color-light);
+  }
+
+  &--default.ctx-dark {
+    --accent-color: var(--text-color-light);
+    --invert-color: var(--text-color);
+
+    --accent-hover: var(--text-color-light);
+    --invert-hover: var(--text-color);
+
+    --accent-active: var(--text-color-light);
+    --invert-active: var(--text-color);
+  }
+
+
+  &--dangerous {
+    --accent-color: var(--dangerous-color);
+    --invert-color: var(--text-color-light);
+
+    --accent-hover: var(--dangerous-color-dark);
+    --invert-hover: var(--light-color);
+
+    --accent-active: var(--dangerous-color-extra-dark);
+    --invert-active: var(--light-color);
+  }
+
+  &--dangerous.ctx-dark {
+    --accent-color: var(--dangerous-color);
+    --invert-color: var(--light-color);
+
+    --accent-hover: var(--dangerous-color-light);
+    --invert-hover: var(--text-color-light);
+
+    --accent-active: var(--dangerous-color-extra-light);
+    --invert-active: var(--text-color-light);
+  }
+
+  // Variants
+  &--contained {
+    border: 1px solid var(--accent-color);
+    background: var(--accent-color);
+    color: var(--invert-color);
+
+    &:hover {
+      background: var(--accent-hover);
+      border: 1px solid var(--accent-hover);
+      color: var(--invert-hover);
+    }
+
+    &:active {
+      background: var(--accent-active);
+      border: 1px solid var(--accent-active);
+      color: var(--invert-active);
+    }
+  }
+
+  &--outline {
+    background: var(--invert-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+
+    &:hover {
+      background: var(--invert-hover);
+      border: 1px solid var(--accent-hover);
+      color: var(--accent-hover);
+    }
+
+    &:active {
+      background: var(--invert-active);
+      border: 1px solid var(--accent-active);
+      color: var(--accent-active);
+    }
+  }
+
+  &--text {
+    --invert-color: hsla(0, 0%, 0%, 0.03);
+    --invert-hover: hsla(0, 0%, 0%, 0.07);
+    --invert-active: hsla(0, 0%, 0%, 0.1);
+
+    &.ctx-dark {
+      --invert-color: hsla(0, 0%, 100%, 0.05);
+      --invert-hover: hsla(0, 0%, 100%, 0.1);
+      --invert-active: hsla(0, 0%, 100%, 0.2);
+    }
+
+    font-weight: bold;
+    background: var(--invert-color);
+    border: unset;
+    color: var(--accent-color);
+
+    &:hover {
+      background: var(--invert-hover);
+      border: unset;
+      color: var(--accent-hover);
+    }
+
+    &:active {
+      background: var(--invert-active);
+      border: unset;
+      color: var(--accent-active);
+      transition: unset;
+    }
+  }
+
+  &--icon {
+    --font-size: 100%;
+    --invert-color: transparent;
+    --invert-hover: hsla(0, 0%, 0%, 0.07);
+    --invert-active: hsla(0, 0%, 0%, 0.1);
+
+    &.ctx-dark {
+      --invert-color: transparent;
+      --invert-hover: hsla(0, 0%, 100%, 0.1);
+      --invert-active: hsla(0, 0%, 100%, 0.2);
+    }
+
+    border: unset;
+    border-radius: 100%;
+    padding: var(--g-padding);
+    background: var(--invert-color);
+    color: var(--accent-color);
+    height: unset;
+
+    &:hover {
+      border: unset;
+      background: var(--invert-hover);
+      color: var(--accent-hover);
+    }
+
+    &:active {
+      border: unset;
+      background: var(--invert-active);
+      color: var(--accent-active);
+    }
+  }
+
+  // Sizes
+  &--large {
+    --g-padding: 22px;
+    --base-height: 48px;
+    --font-size: 18px;
+  }
+
+  &--fit {
+    --g-padding: 3px;
+    --base-height: unset;
+  }
+
+  // Disabled
+  &[disabled],
+  &[aria-disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
+    --accent-color: var(--disabled-color);
+    --invert-color: var(--disabled-color-light);
+
+    --accent-hover: var(--accent-color);
+    --invert-hover: var(--invert-color);
+
+    --accent-active: var(--accent-color);
+    --invert-active: var(--invert-color);
+  }
+}
+
+
+
